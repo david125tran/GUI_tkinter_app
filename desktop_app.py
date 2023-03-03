@@ -1,7 +1,6 @@
 # GUI Tutorial: https://www.pythontutorial.net/tkinter/tkinter-open-file-dialog/
 
 #----------------------------------------Terminal Installs----------------------------------------#
-#
 # pip install gTTS
 # pip install pypdf2
 # pip install mutagen
