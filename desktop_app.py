@@ -65,9 +65,9 @@ def select_file():
     # -----------------------------------Play the Speech------------------------------------#
     for page_number in range(0, total_pages):
         os.system(f"new_page_speech_{page_number}.mp3")
-    audio = MP3(f"new_page_speech_{page_number}.mp3")  # Extract the length of the mp3 of the page
-    time.sleep(int(audio.info.length) + 2)  # Wait for the mp3 of the page to finish playing before looping to
-    # the next page
+        audio = MP3(f"new_page_speech_{page_number}.mp3")  # Extract the length of the mp3 of the page
+        time.sleep(int(audio.info.length) + 2)  # Wait for the mp3 of the page to finish playing before looping to
+        # the next page
 
 # open button
 file_explorer_button = Button(text="Open", highlightthickness=0, width=14, command=select_file)
