@@ -49,7 +49,6 @@ def select_file():
     # The file path then gets saved as the variable "filename"
 
     # --------------------------------------Open The PDF-------------------------------------#
-    filename = "pdf_file.pdf"
     pdf = open(filename, 'rb')
     pdf_reader = PyPDF2.PdfFileReader(pdf)
 
