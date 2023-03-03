@@ -56,11 +56,11 @@ def select_file():
     for page_number in range(0, total_pages):
     # Extract the text from each page
         new_page = pdf_reader.getPage(page_number)
-    new_page_text = new_page.extractText()
-    # Convert the text to speech (.mp3 file)
-    new_page_speech = gTTS(text=new_page_text, lang='en', slow=False)
-    # Each page becomes a new file
-    new_page_speech.save(f"new_page_speech_{page_number}.mp3")
+        new_page_text = new_page.extractText()
+        # Convert the text to speech (.mp3 file)
+        new_page_speech = gTTS(text=new_page_text, lang='en', slow=False)
+        # Each page becomes a new file
+        new_page_speech.save(f"new_page_speech_{page_number}.mp3")
 
     # -----------------------------------Play the Speech------------------------------------#
     for page_number in range(0, total_pages):
