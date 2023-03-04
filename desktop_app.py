@@ -97,4 +97,4 @@ audio_name_label.grid(column=1, row=4)
 audio_name = Entry(fg=BLACK, bg=WHITE, font=(FONT_NAME, 12))
 audio_name.grid(column=1, row=5)
 
-window.mainloop()
+window.mainloop()   # Keep the window open
