@@ -7,7 +7,7 @@ pdf_file.pdf is an example PDF of a Spring poem. Open the pdf to have it played 
 Find your location of your download folder for this package
 
 Open your command prompt and type the following:  
-1) cd followed by the location of your download folder for this package
+1) cd followed by the location of your download folder for this package  
    Example: cd C:\Users\Albert\desktop\GUI_tkinter_app
 2) pip install python-time  
 3) pip install pyinstaller
