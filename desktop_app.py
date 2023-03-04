@@ -13,7 +13,6 @@ import time
 from mutagen.mp3 import MP3
 from tkinter import *
 
-
 #----------------------------------------Constants----------------------------------------#
 FONT_NAME = "Arial"
 BLACK = "#000000"
@@ -32,19 +31,22 @@ canvas.create_image(100, 150, image=logo_img)
 canvas.grid(column=1, row=0)
 
 #--------------------------------------Select File Button-------------------------------------#
+filename = ""
 def select_file():
+    global filename
+    '''Call this function when the user opens a file.'''
     filetypes = (
         ('pdf files', '*.pdf'),
-        ('All files', '*.*')
     )
 
-    filename = fd.askopenfilename(
+    filename = fd.askopenfilename(   # The file path then gets saved as the variable "filename" at the global level
         title='Open a file',
         initialdir='/',
         filetypes=filetypes
     )
-    # The file path then gets saved as the variable "filename"
+    info_label.config(text=filename)
 
+def submit_button_clicked():
     # --------------------------------------Open The PDF-------------------------------------#
     pdf = open(filename, 'rb')
     pdf_reader = PyPDF2.PdfFileReader(pdf)
@@ -53,34 +55,39 @@ def select_file():
     total_pages = pdf_reader.numPages
 
     # -----------------------------------Extract The Text------------------------------------#
+    text = ""
     for page_number in range(0, total_pages):
     # Extract the text from each page
         new_page = pdf_reader.getPage(page_number)
         new_page_text = new_page.extractText()
-        # Convert the text to speech (.mp3 file)
-        new_page_speech = gTTS(text=new_page_text, lang='en', slow=False)
-        # Each page becomes a new file
-        new_page_speech.save(f"new_page_speech_{page_number}.mp3")
+        text = text + "\n\n" + new_page_text   # Add the text to the previous pages if there are any
+
+    # Convert all of the text to speech (.mp3 file)
+    audio = gTTS(text=text, lang='en', slow=False)
+    # Each page becomes a new file
+    audio_file_name = f"{audio_name.get()}.mp3"
+    audio.save(audio_file_name)
 
     # -----------------------------------Play the Speech------------------------------------#
-    for page_number in range(0, total_pages):
-        os.system(f"new_page_speech_{page_number}.mp3")
-        audio = MP3(f"new_page_speech_{page_number}.mp3")  # Extract the length of the mp3 of the page
-        time.sleep(int(audio.info.length) + 2)  # Wait for the mp3 of the page to finish playing before looping to
-        # the next page
+    os.system("audio.mp3")
+    print(text)
 
-# open button
+# -----------------------------------File Explorer Button------------------------------------#
 file_explorer_button = Button(text="Open", highlightthickness=0, width=14, command=select_file)
 file_explorer_button.grid(column=1, row=2)
 
-#
-file_name_label = Label(text="Select PDF File to Convert to Audio:", fg=BLACK, bg=WHITE, font=(FONT_NAME, 12))
-file_name_label.grid(column=1, row=1)
+submit_button = Button(text="Submit", highlightthickness=0, width=14, command=submit_button_clicked)
+submit_button.grid(column=1, row=3)
+
+# -----------------------------------Labels------------------------------------#
+info_label = Label(text="Enter the file name", fg=BLACK, bg=WHITE, font=(FONT_NAME, 12))
+info_label.grid(column=1, row=1)
+mp3_label = Label(text=".mp3", fg=BLACK, bg=WHITE, font=(FONT_NAME, 12))
+mp3_label.grid(column=2, row=5)
+
+audio_name_label = Label(text="Enter a name for the new audio:", fg=BLACK, bg=WHITE, font=(FONT_NAME, 12))
+audio_name_label.grid(column=1, row=4)
+audio_name = Entry(fg=BLACK, bg=WHITE, font=(FONT_NAME, 12))
+audio_name.grid(column=1, row=5)
 
 window.mainloop()
-
-
-
-
-
-
