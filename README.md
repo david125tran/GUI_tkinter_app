@@ -4,6 +4,8 @@ I have built this desktop application.
 This Tkinter GUI converts PDF files to MP3 files and immediately opens the new audio file for the user.
 
 pdf_file.pdf is an example PDF of a Spring poem. Open the pdf to have it played to you in audio.
+  
+You an run desktop_app.py file in a Python IDE such as PyCharm or alternatively, you can create a desktop app by following below:
 
 Find your location of your download folder for this package
 
@@ -17,3 +19,4 @@ Open your command prompt and type the following:
 6) pyinstaller --onefile desktop_app.py
 
 Go to the folder of this package, "GUI_tkinter_app". Then go to the "dist folder".  The application is called "desktop_app"
+
