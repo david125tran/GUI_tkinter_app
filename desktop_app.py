@@ -3,7 +3,6 @@
 # pip install gTTS
 # pip install pypdf2
 # pip install mutagen
-# pip install python-time
 
 #----------------------------------------Imports----------------------------------------#
 from tkinter import filedialog as fd
