@@ -1,4 +1,4 @@
-# desktop_GUI_app_book_to_audio_converter
+# GUI made with Tkinter
 
 This Tkinter GUI converts PDF files to MP3 files and immediately opens the new audio file for the user.
 
