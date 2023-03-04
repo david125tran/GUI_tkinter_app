@@ -1,5 +1,6 @@
 # GUI made with Tkinter
-
+I have built this desktop application.  
+  
 This Tkinter GUI converts PDF files to MP3 files and immediately opens the new audio file for the user.
 
 pdf_file.pdf is an example PDF of a Spring poem. Open the pdf to have it played to you in audio.
