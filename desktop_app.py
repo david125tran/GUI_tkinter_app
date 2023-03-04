@@ -1,4 +1,5 @@
 #----------------------------------------Terminal Installs----------------------------------------#
+# pip install pyinstaller
 # pip install gTTS
 # pip install pypdf2
 # pip install mutagen
